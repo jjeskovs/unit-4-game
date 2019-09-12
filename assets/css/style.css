@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+.clearfix::after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 25px;
+    /* background-image: url("../images/background2.jpg"); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* color: yellow; */
+    
+}
+
+#wrapper {
+    width: 450px;
+    margin: 50px auto 0;
+    
+
+}
+h1 {
+    font-size: 45px;
+    text-align: left;
+    
+}
+
+h2 {
+    font-size: 24px
+}
+p {
+    margin: 15px;
+    margin-left: 25px;
+    padding: 5px;
+     
+    /* add text spacing  */
+
+}
+#rulles {
+    width: 400px;
+
+}
+.crystal {
+    width: 100px;
+    height: 100px;
+}
+
+#wins   {
+    width: 360px;
+    height: 75px;
+    font-size: 24px;
+    margin-left: 30px;
+    background: olive;
+    text-align: center;
+    padding-top: 25px;
+    
+}
+#losses {
+    width: 360px;
+    height: 75px;
+    background: gold;
+    text-align: center;
+    padding-top: 25px;    
+    font-size: 24px;
+    margin-left: 30px;
+    margin-top: 20px
+    
+}
+#target-number {
+    width: 360px;
+    height: 75px;
+    margin-left: 30px;
+    margin-top: 20px;
+    background: blue;   
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-align: center;
+    padding-top: 25px;
+}
+#user-number {
+    width: 360px;
+    height: 75px;
+    margin-left: 30px;
+    margin-top: 20px;
+    background: blue;   
+    font-size: 36px;
+    margin-bottom: 25px;
+    text-align: center;
+    padding-top: 25px;
+
+}
