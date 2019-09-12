@@ -3,7 +3,7 @@
 var userNumber = 0
 var wins = 0
 var losses = 0
-var imgCrystal = ["../images/crystal-1.jpeg", "../images/crystal-2.jpeg", "../images/crystal-1.jpeg","../images/crystal-2.jpeg" ]    
+var imgCrystal = ["assets/images/crystal-1.jpeg", "assets/images/crystal-2.jpeg", "assets/images/crystal-3.jpeg","assets/images/crystal-4.jpeg" ]    
 var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 var increment = numberOptions[Math.round(Math.random())];
 // function   
@@ -15,33 +15,40 @@ $("#wins").text(wins);
 $("#losses").text(losses);
 $("#target-number").text(targetNumber);
 $("#user-number").text(userNumber);
-//$(".crystals").clear()
-//makeCrystals()
+$(".crystals").empty()
+makeCrystals()
 } 
 reset()    
 
-//BELOW IS THE CODE FOR DINAMIC CRYSTALS (it does not work :)
-
+// lets put crystalls on the screen
 function makeCrystals(){
   for (i = 0; i < imgCrystal.length; i++) {
     var image = $("<img>");
+    //console.log(image);
+    
     //adding class 
-    image.addclass("img-crystal");
+    image.addClass("crystal");
+    
     //adding source attribute for each image 
-    // image.attr("src", imgCrystal[i]);
+    image.attr("src", imgCrystal[i]);
+    
     //adding value (1-12) to the image
-    image.attr("data-test", Math.floor((Math.random() * 11) + 1)); //<--- this did not work
-    // image.attr("data-test", inrement);  
-    $("#crystals").append(imgCrystal[i]);
+    image.attr("data-value", Math.floor((Math.random() * 11) + 1)); 
+    $("#crystals").append(image);
   }
 }
  
-$(".crystal-image").on("click", function() {
+$("#crystals").on("click", ".crystal", function() {
 
-  var crystalValue = ($(this).attr("data-test"));
+  var crystalValue = ($(this).attr("data-value"));
   crystalValue = parseInt(crystalValue);
-  
   userNumber += crystalValue;
-
-
+  $("#user-number").text(userNumber);
+  console.log(userNumber)
 })
+
+  
+
+  
+  
+
