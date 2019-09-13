@@ -4,18 +4,18 @@ var userNumber = 0
 var wins = 0
 var losses = 0
 var imgCrystal = ["assets/images/crystal-1.jpeg", "assets/images/crystal-2.jpeg", "assets/images/crystal-3.jpeg","assets/images/crystal-4.jpeg" ]    
-var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-var increment = numberOptions[Math.round(Math.random())];
+//var numberOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+//var increment = numberOptions[Math.round(Math.random())];
 // function   
 
 function reset() {
 targetNumber = Math.floor((Math.random() * 101) + 19);
 userNumber = 0;
-$("#wins").text(wins);
-$("#losses").text(losses);
-$("#target-number").text(targetNumber);
-$("#user-number").text(userNumber);
-$(".crystals").empty()
+$("#wins").text("Wins: " + wins);
+$("#losses").text("Losses: " + losses);
+$("#target-number").text("Number to reach: " +  targetNumber);
+$("#user-number").text("Your number is: " + userNumber);
+$("#crystals").empty()
 makeCrystals()
 } 
 reset()    
@@ -30,7 +30,7 @@ function makeCrystals(){
     image.addClass("crystal");
     
     //adding source attribute for each image 
-    image.attr("src", imgCrystal[i]);
+    image.attr("src", imgCrystal[Math.floor(Math.random() * imgCrystal.length)]);
     
     //adding value (1-12) to the image
     image.attr("data-value", Math.floor((Math.random() * 11) + 1)); 
@@ -45,8 +45,19 @@ $("#crystals").on("click", ".crystal", function() {
   userNumber += crystalValue;
   $("#user-number").text(userNumber);
   console.log(userNumber)
+  
+  if (targetNumber === userNumber) {
+    alert("You Win");
+    wins++
+    reset();
+    
+  }else if (targetNumber <  userNumber) {
+    alert("Boooooo!!! You Lost!!!")
+    losses++
+    reset()
+  }
+  
 })
-
   
 
   
